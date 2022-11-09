@@ -1,0 +1,53 @@
+.table,
+.table__static {
+  margin-left: auto;
+  margin-right: auto;
+
+  td,
+  th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  tbody {
+    tr {
+      transition: 0.5s ease all;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  }
+
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0436aa79;
+    color: white;
+  }
+
+  &__buttons {
+    padding: 0px 10px;
+    display: flex;
+    gap: 10px;
+    &__logo {
+      width: 25px;
+      height: 25px;
+      transition: 0.5s ease all;
+      &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.table {
+    tbody {
+      tr:hover {
+        background-color: #ddd;
+        cursor: pointer;
+        transform: scale(1.01);
+      }
+    }
+  }

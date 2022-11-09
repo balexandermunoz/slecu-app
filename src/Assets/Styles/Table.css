@@ -1,0 +1,51 @@
+.table,
+.table__static {
+  margin-left: auto;
+  margin-right: auto;
+}
+.table td,
+.table th,
+.table__static td,
+.table__static th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.table tbody tr,
+.table__static tbody tr {
+  transition: 0.5s ease all;
+}
+.table tbody tr:nth-child(even),
+.table__static tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.table th,
+.table__static th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgba(4, 54, 170, 0.4745098039);
+  color: white;
+}
+.table__buttons,
+.table__static__buttons {
+  padding: 0px 10px;
+  display: flex;
+  gap: 10px;
+}
+.table__buttons__logo,
+.table__static__buttons__logo {
+  width: 25px;
+  height: 25px;
+  transition: 0.5s ease all;
+}
+.table__buttons__logo:hover,
+.table__static__buttons__logo:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.table tbody tr:hover {
+  background-color: #ddd;
+  cursor: pointer;
+  transform: scale(1.01);
+}/*# sourceMappingURL=Table.css.map */
