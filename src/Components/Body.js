@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import utils from "../Scripts/utils";
 import Modal from "./Modal";
 import Form from "./Form";
 import Table from "./Table";
 import Plots from "./Plots";
 import "../Assets/Styles/Body.css";
-import utils from "../Scripts/utils";
 
 const Body = (props) => {
   const [isOpen, setIsOpen] = useState(false);
