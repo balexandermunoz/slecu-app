@@ -43,11 +43,41 @@
 }
 
 .table {
-    tbody {
-      tr:hover {
-        background-color: #ddd;
-        cursor: pointer;
-        transform: scale(1.01);
+  tbody {
+    tr:hover {
+      background-color: #ddd;
+      cursor: pointer;
+      transform: scale(1.01);
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .table,
+  .table__static {
+    border: 0;
+    font-size: 0.8em;
+    &__buttons {
+      padding: 0px 5px;
+      gap: 5px;
+      &__logo {
+        width: 15px;
+        height: 15px;
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
+}
+
+@media screen and (max-width: 520px) {
+  .table {
+    td,
+    th {
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}

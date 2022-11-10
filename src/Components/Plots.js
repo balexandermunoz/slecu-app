@@ -117,16 +117,20 @@ const Plots = (props) => {
         </h3>
       )}
       {!props.isOpen && (
-        <div>
+        <div className="plots__container">
           <Plot
             data={topStudentsData}
             layout={layoutTopStudens}
             config={config}
+            useResizeHandler={true}
+            style={{ width: "100%", height: "100%" }}
           ></Plot>
           <Plot
             data={topStudentsData2}
             layout={layoutTopStudens2}
             config={config}
+            useResizeHandler={true}
+            style={{ width: "100%", height: "100%" }}
           ></Plot>
         </div>
       )}

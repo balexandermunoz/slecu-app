@@ -18,7 +18,6 @@ const Table = (props) => {
 
   if (type === "students") {
     return (
-      <div>
         <table className="table">
           <thead>
             <tr>
@@ -75,11 +74,9 @@ const Table = (props) => {
             ))}
           </tbody>
         </table>
-      </div>
     );
   }
   return (
-    <div>
       <table className="table__static">
         <thead>
           <tr>
@@ -120,7 +117,6 @@ const Table = (props) => {
           ))}
         </tbody>
       </table>
-    </div>
   );
 };
 

@@ -60,27 +60,25 @@ const Body = (props) => {
       {!index && <h4>click on a student to see their activities</h4>}
       {index && <h1>Activities of student {index}</h1>}
       {activities && (
-        <div>
-          <Table
-            data={activities}
-            type="activities"
-            handleDelete={utils.handleDelete}
-            handleUpdate={utils.handleUpdate}
-            handleShowActivities={utils.handleShowActivities}
-            setListUpdated={setListUpdated}
-            setFns={setFns}
-          ></Table>
-
-          <div className="button-container">
-            <button
-              className="button-container__button"
-              onClick={() => utils.handleAddButton("activities", index, setFns)}
-            >
-              Add Activity
-            </button>
-          </div>
-        </div>
+        <Table
+          data={activities}
+          type="activities"
+          handleDelete={utils.handleDelete}
+          handleUpdate={utils.handleUpdate}
+          handleShowActivities={utils.handleShowActivities}
+          setListUpdated={setListUpdated}
+          setFns={setFns}
+        ></Table>
       )}
+
+      <div className="button-container">
+        <button
+          className="button-container__button"
+          onClick={() => utils.handleAddButton("activities", index, setFns)}
+        >
+          Add Activity
+        </button>
+      </div>
       <Modal title={title} isOpen={isOpen} setIsOpen={setIsOpen}>
         <Form
           index={index}
