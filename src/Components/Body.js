@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import Form from "./Form";
 import Table from "./Table";
-import "../Assets/Styles/Table.css";
+import Plots from "./Plots";
+import "../Assets/Styles/Body.css";
 
 const Body = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,6 +48,7 @@ const Body = (props) => {
     setFormType("activities");
     setIsOpen(true);
     setTitle("Add Activity");
+    if (index) setStudent({ studentid: index });
     setIndex(null);
   };
 
@@ -56,7 +58,8 @@ const Body = (props) => {
     };
     fetch(`http://localhost:9000/students/${id}`, requestInit)
       .then((res) => res.text())
-      .then((res) => console.log(res));
+      .then((res) => console.log(res))
+      .catch((error) => alert("Delete activities first!"));
     setListUpdated(true);
   };
 
@@ -81,24 +84,28 @@ const Body = (props) => {
   };
 
   const handleUpdateActivity = (id) => {
+    let currActivity = activities.find((el) => el.id === id);
     setFormType("activities");
     setIsOpen(true);
     setTitle("Update Activity");
     setIndex(id);
     setListUpdated(true);
+    setStudent(currActivity);
   };
 
   const handleActivities = (id) => {
     setIndexActivity(id);
+    setIndex(id);
     setListUpdated(true);
     setActivities(activities);
   };
 
   return (
-    <div>
+    <div className="body">
+      <h1>Students</h1>
       {students && (
         <Table
-          students={students}
+          data={students}
           type="students"
           handleDelete={handleDeleteStudent}
           handleUpdate={handleUpdateStudent}
@@ -113,10 +120,12 @@ const Body = (props) => {
           Add Student
         </button>
       </div>
+      {!index && <h4>click on a student to see their activities</h4>}
+      {index && <h1>Activities of student {index}</h1>}
       {activities && (
         <div>
           <Table
-            students={activities}
+            data={activities}
             type="activities"
             handleDelete={handleDeleteActivity}
             handleUpdate={handleUpdateActivity}
@@ -141,6 +150,7 @@ const Body = (props) => {
           type={formType}
         ></Form>
       </Modal>
+      <Plots isOpen={isOpen}></Plots>
     </div>
   );
 };
