@@ -19,8 +19,8 @@ const Table = (props) => {
         <table className="table">
           <thead>
             <tr>
-              {cols.map((col) => (
-                <th>{col}</th>
+              {cols.map((col, idx) => (
+                <th key={idx}>{col}</th>
               ))}
             </tr>
           </thead>
@@ -73,8 +73,8 @@ const Table = (props) => {
       <table className="table__static">
         <thead>
           <tr>
-            {cols.map((col) => (
-              <th>{col}</th>
+            {cols.map((col, idx) => (
+              <th key={idx}>{col}</th>
             ))}
           </tr>
         </thead>
