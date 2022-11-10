@@ -1,8 +1,9 @@
+import "../Assets/Styles/Table.css";
 import deleteLogo from "../Assets/Images/delete.png";
 import editLogo from "../Assets/Images/edit.png";
 
 const Table = (props) => {
-  const students = props.students;
+  const data = props.data;
   const type = props.type;
   const handleDelete = props.handleDelete;
   const handleUpdate = props.handleUpdate;
@@ -24,7 +25,7 @@ const Table = (props) => {
             </tr>
           </thead>
           <tbody>
-            {students.map((student) => (
+            {data.map((student) => (
               <tr key={student.id} className="table__dinamic">
                 <td onClick={() => handleActivities(student.id)}>
                   {student.id}
@@ -78,7 +79,7 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {students.map((student) => (
+          {data.map((student) => (
             <tr key={student.id}>
               <td>{student.id}</td>
               <td>{student.activity}</td>
