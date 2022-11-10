@@ -18,66 +18,7 @@ const Table = (props) => {
 
   if (type === "students") {
     return (
-        <table className="table">
-          <thead>
-            <tr>
-              {cols.map((col, idx) => (
-                <th key={idx}>{col}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((student) => (
-              <tr key={student.id} className="table__dinamic">
-                <td onClick={() => handleShowActivities(student.id, setFns)}>
-                  {student.id}
-                </td>
-                <td onClick={() => handleShowActivities(student.id, setFns)}>
-                  {student.name}
-                </td>
-                <td onClick={() => handleShowActivities(student.id, setFns)}>
-                  {student.email}
-                </td>
-                <td onClick={() => handleShowActivities(student.id, setFns)}>
-                  {student.year}
-                </td>
-                <td onClick={() => handleShowActivities(student.id, setFns)}>
-                  {student.age}
-                </td>
-                <td onClick={() => handleShowActivities(student.id, setFns)}>
-                  {student.gender}
-                </td>
-                <td>
-                  <div className="table__buttons">
-                    <img
-                      src={deleteLogo}
-                      onClick={() =>
-                        handleDelete(
-                          `http://localhost:9000/students/${student.id}`,
-                          setListUpdated
-                        )
-                      }
-                      className="table__buttons__logo"
-                      alt="delete logo"
-                    />
-                    <img
-                      src={editLogo}
-                      onClick={() =>
-                        handleUpdate(type, student.id, data, setFns)
-                      }
-                      className="table__buttons__logo"
-                      alt="edit logo"
-                    />
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-    );
-  }
-  return (
-      <table className="table__static">
+      <table className="table">
         <thead>
           <tr>
             {cols.map((col, idx) => (
@@ -87,18 +28,32 @@ const Table = (props) => {
         </thead>
         <tbody>
           {data.map((student) => (
-            <tr key={student.id}>
-              <td>{student.id}</td>
-              <td>{student.activity}</td>
-              <td>{student.value}</td>
-              <td>{student.date}</td>
+            <tr key={student.id} className="table__dinamic">
+              <td onClick={() => handleShowActivities(student.id, setFns)}>
+                {student.id}
+              </td>
+              <td onClick={() => handleShowActivities(student.id, setFns)}>
+                {student.name}
+              </td>
+              <td onClick={() => handleShowActivities(student.id, setFns)}>
+                {student.email}
+              </td>
+              <td onClick={() => handleShowActivities(student.id, setFns)}>
+                {student.year}
+              </td>
+              <td onClick={() => handleShowActivities(student.id, setFns)}>
+                {student.age}
+              </td>
+              <td onClick={() => handleShowActivities(student.id, setFns)}>
+                {student.gender}
+              </td>
               <td>
                 <div className="table__buttons">
                   <img
                     src={deleteLogo}
                     onClick={() =>
                       handleDelete(
-                        `http://localhost:9000/activities/${student.id}`,
+                        `http://localhost:9000/students/${student.id}`,
                         setListUpdated
                       )
                     }
@@ -117,6 +72,49 @@ const Table = (props) => {
           ))}
         </tbody>
       </table>
+    );
+  }
+  return (
+    <table className="table__static">
+      <thead>
+        <tr>
+          {cols.map((col, idx) => (
+            <th key={idx}>{col}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((student) => (
+          <tr key={student.id}>
+            <td>{student.id}</td>
+            <td>{student.activity}</td>
+            <td>{student.value}</td>
+            <td>{student.date}</td>
+            <td>
+              <div className="table__buttons">
+                <img
+                  src={deleteLogo}
+                  onClick={() =>
+                    handleDelete(
+                      `http://localhost:9000/activities/${student.id}`,
+                      setListUpdated
+                    )
+                  }
+                  className="table__buttons__logo"
+                  alt="delete logo"
+                />
+                <img
+                  src={editLogo}
+                  onClick={() => handleUpdate(type, student.id, data, setFns)}
+                  className="table__buttons__logo"
+                  alt="edit logo"
+                />
+              </div>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

@@ -8,11 +8,11 @@ const Plots = (props) => {
   const [topStudentsActivities, setTopStudentsActivities] = useState([]);
   const [topStudentsValues, setTopStudentsValues] = useState([]);
   const [avgValue, setAvgValue] = useState(null);
+
   useEffect(() => {
     utils.getData(`http://localhost:9000/stats/`, setTopStudentsActivities);
     utils.getData(`http://localhost:9000/stats/value`, setTopStudentsValues);
     utils.getData(`http://localhost:9000/stats/avg`, setAvgValue);
-
   }, [props.listUpdated, props.indexActivity]);
 
   const topStudentsDataAct = [
@@ -36,7 +36,8 @@ const Plots = (props) => {
       <h1>Stats</h1>
       {avgValue && (
         <h3>
-          Average score in this course: {Math.round(avgValue[0].avg * 100) / 100}
+          Average score in this course:{" "}
+          {Math.round(avgValue[0].avg * 100) / 100}
         </h3>
       )}
       {!props.isOpen && (

@@ -10,7 +10,7 @@ const handleAddButton = (type = "students", index, setFns) => {
   setFns.setFormType(type);
   setFns.setIsOpen(true);
   setFns.setTitle(`Add ${type}`);
-  if ((type === "activities") && index) setFns.setStudent({ studentid: index });
+  if (type === "activities" && index) setFns.setStudent({ studentid: index });
   setFns.setIndex(null);
 };
 
