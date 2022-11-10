@@ -27,9 +27,9 @@ const Body = (props) => {
   };
 
   useEffect(() => {
-    utils.getData(`http://localhost:9000/students`, setStudents);
+    utils.getData(`http://ec2-54-90-169-130.compute-1.amazonaws.com/students`, setStudents);
     utils.getData(
-      `http://localhost:9000/activities/${indexActivity}`,
+      `http://ec2-54-90-169-130.compute-1.amazonaws.com/activities/${indexActivity}`,
       setActivities
     );
     setListUpdated(false);
