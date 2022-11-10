@@ -7,7 +7,10 @@ const Table = (props) => {
   const type = props.type;
   const handleDelete = props.handleDelete;
   const handleUpdate = props.handleUpdate;
-  const handleActivities = props.handleActivities;
+  const handleShowActivities = props.handleShowActivities;
+  const setListUpdated = props.setListUpdated;
+  const setFns = props.setFns;
+
   const cols =
     type === "students"
       ? ["ID", "Name", "Email", "Year", "Age", "Gender", ""]
@@ -27,35 +30,42 @@ const Table = (props) => {
           <tbody>
             {data.map((student) => (
               <tr key={student.id} className="table__dinamic">
-                <td onClick={() => handleActivities(student.id)}>
+                <td onClick={() => handleShowActivities(student.id, setFns)}>
                   {student.id}
                 </td>
-                <td onClick={() => handleActivities(student.id)}>
+                <td onClick={() => handleShowActivities(student.id, setFns)}>
                   {student.name}
                 </td>
-                <td onClick={() => handleActivities(student.id)}>
+                <td onClick={() => handleShowActivities(student.id, setFns)}>
                   {student.email}
                 </td>
-                <td onClick={() => handleActivities(student.id)}>
+                <td onClick={() => handleShowActivities(student.id, setFns)}>
                   {student.year}
                 </td>
-                <td onClick={() => handleActivities(student.id)}>
+                <td onClick={() => handleShowActivities(student.id, setFns)}>
                   {student.age}
                 </td>
-                <td onClick={() => handleActivities(student.id)}>
+                <td onClick={() => handleShowActivities(student.id, setFns)}>
                   {student.gender}
                 </td>
                 <td>
                   <div className="table__buttons">
                     <img
                       src={deleteLogo}
-                      onClick={() => handleDelete(student.id)}
+                      onClick={() =>
+                        handleDelete(
+                          `http://localhost:9000/students/${student.id}`,
+                          setListUpdated
+                        )
+                      }
                       className="table__buttons__logo"
                       alt="delete logo"
                     />
                     <img
                       src={editLogo}
-                      onClick={() => handleUpdate(student.id)}
+                      onClick={() =>
+                        handleUpdate(type, student.id, data, setFns)
+                      }
                       className="table__buttons__logo"
                       alt="edit logo"
                     />
@@ -89,13 +99,18 @@ const Table = (props) => {
                 <div className="table__buttons">
                   <img
                     src={deleteLogo}
-                    onClick={() => handleDelete(student.id)}
+                    onClick={() =>
+                      handleDelete(
+                        `http://localhost:9000/activities/${student.id}`,
+                        setListUpdated
+                      )
+                    }
                     className="table__buttons__logo"
                     alt="delete logo"
                   />
                   <img
                     src={editLogo}
-                    onClick={() => handleUpdate(student.id)}
+                    onClick={() => handleUpdate(type, student.id, data, setFns)}
                     className="table__buttons__logo"
                     alt="edit logo"
                   />

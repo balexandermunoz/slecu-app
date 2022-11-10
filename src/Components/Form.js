@@ -11,7 +11,7 @@ const Form = ({ index, student, setStudent, type }) => {
     }
 
     const handleSubmit = () => {
-        // Validation
+        // Data validation
         if (type === "students"){
             if (!validateData.validateStudentData(student)) return
         } else{

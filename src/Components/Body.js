@@ -4,6 +4,7 @@ import Form from "./Form";
 import Table from "./Table";
 import Plots from "./Plots";
 import "../Assets/Styles/Body.css";
+import utils from "../Scripts/utils";
 
 const Body = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,90 +16,24 @@ const Body = (props) => {
   const [students, setStudents] = useState(null);
   const [activities, setActivities] = useState(null);
   const [formType, setFormType] = useState("students");
+  const setFns = {
+    setFormType,
+    setIsOpen,
+    setTitle,
+    setIndex,
+    setListUpdated,
+    setStudent,
+    setIndexActivity,
+  };
 
   useEffect(() => {
-    const getStudents = async () => {
-      const response = await fetch(`http://localhost:9000/students`);
-      const body = await response.json();
-      setStudents(body);
-      return body;
-    };
-    const getActivities = async (id) => {
-      const response = await fetch(`http://localhost:9000/activities/${id}`);
-      const body = await response.json();
-      setActivities(body);
-      return body;
-    };
-
-    getStudents();
-    getActivities(indexActivity);
+    utils.getData(`http://localhost:9000/students`, setStudents);
+    utils.getData(
+      `http://localhost:9000/activities/${indexActivity}`,
+      setActivities
+    );
     setListUpdated(false);
   }, [listUpdated, indexActivity]);
-
-  const handleAddStudentButton = () => {
-    console.log(student);
-    setFormType("students");
-    setIsOpen(true);
-    setTitle("Add Student");
-    setIndex(null);
-  };
-
-  const handleAddActivityButton = () => {
-    console.log(student);
-    setFormType("activities");
-    setIsOpen(true);
-    setTitle("Add Activity");
-    if (index) setStudent({ studentid: index });
-    setIndex(null);
-  };
-
-  const handleDeleteStudent = (id) => {
-    const requestInit = {
-      method: "DELETE",
-    };
-    fetch(`http://localhost:9000/students/${id}`, requestInit)
-      .then((res) => res.text())
-      .then((res) => console.log(res))
-      .catch((error) => alert("Delete activities first!"));
-    setListUpdated(true);
-  };
-
-  const handleDeleteActivity = (id) => {
-    const requestInit = {
-      method: "DELETE",
-    };
-    fetch(`http://localhost:9000/activities/${id}`, requestInit)
-      .then((res) => res.text())
-      .then((res) => console.log(res));
-    setListUpdated(true);
-  };
-
-  const handleUpdateStudent = (id) => {
-    let currStudent = students.find((el) => el.id === id);
-    setFormType("students");
-    setIsOpen(true);
-    setTitle("Update Student");
-    setIndex(id);
-    setListUpdated(true);
-    setStudent(currStudent);
-  };
-
-  const handleUpdateActivity = (id) => {
-    let currActivity = activities.find((el) => el.id === id);
-    setFormType("activities");
-    setIsOpen(true);
-    setTitle("Update Activity");
-    setIndex(id);
-    setListUpdated(true);
-    setStudent(currActivity);
-  };
-
-  const handleActivities = (id) => {
-    setIndexActivity(id);
-    setIndex(id);
-    setListUpdated(true);
-    setActivities(activities);
-  };
 
   return (
     <div className="body">
@@ -107,15 +42,17 @@ const Body = (props) => {
         <Table
           data={students}
           type="students"
-          handleDelete={handleDeleteStudent}
-          handleUpdate={handleUpdateStudent}
-          handleActivities={handleActivities}
+          handleDelete={utils.handleDelete}
+          handleUpdate={utils.handleUpdate}
+          handleShowActivities={utils.handleShowActivities}
+          setListUpdated={setListUpdated}
+          setFns={setFns}
         ></Table>
       )}
       <div className="button-container">
         <button
           className="button-container__button"
-          onClick={handleAddStudentButton}
+          onClick={() => utils.handleAddButton("students", index, setFns)}
         >
           Add Student
         </button>
@@ -127,15 +64,17 @@ const Body = (props) => {
           <Table
             data={activities}
             type="activities"
-            handleDelete={handleDeleteActivity}
-            handleUpdate={handleUpdateActivity}
-            handleActivities={handleActivities}
+            handleDelete={utils.handleDelete}
+            handleUpdate={utils.handleUpdate}
+            handleShowActivities={utils.handleShowActivities}
+            setListUpdated={setListUpdated}
+            setFns={setFns}
           ></Table>
 
           <div className="button-container">
             <button
               className="button-container__button"
-              onClick={handleAddActivityButton}
+              onClick={() => utils.handleAddButton("activities", index, setFns)}
             >
               Add Activity
             </button>
