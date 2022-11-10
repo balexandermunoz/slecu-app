@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/slecu-app/static/css/main.ecc22706.css",
+    "main.js": "/slecu-app/static/js/main.2ea15498.js",
+    "static/js/787.554fedf7.chunk.js": "/slecu-app/static/js/787.554fedf7.chunk.js",
+    "static/media/delete.png": "/slecu-app/static/media/delete.cd987e7bc4b98096e2ef.png",
+    "index.html": "/slecu-app/index.html",
+    "main.ecc22706.css.map": "/slecu-app/static/css/main.ecc22706.css.map",
+    "main.2ea15498.js.map": "/slecu-app/static/js/main.2ea15498.js.map",
+    "787.554fedf7.chunk.js.map": "/slecu-app/static/js/787.554fedf7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ecc22706.css",
+    "static/js/main.2ea15498.js"
+  ]
+}
