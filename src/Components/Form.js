@@ -25,7 +25,7 @@ const Form = ({ index, student, setStudent, type }) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(student)
             }
-            fetch(`44.203.170.143:9000/${type}/${index}`, requestInit)
+            fetch(`https://student3.slecu.live/${type}/${index}`, requestInit)
                 .then(res => res.text())
                 .then(res => console.log(res))
         }
@@ -36,7 +36,7 @@ const Form = ({ index, student, setStudent, type }) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(student)
             }
-            fetch(`44.203.170.143:9000/${type}`, requestInit)
+            fetch(`https://student3.slecu.live/${type}`, requestInit)
                 .then(res => res.text())
                 .then(res => console.log(res))
         }
