@@ -27,9 +27,9 @@ const Body = (props) => {
   };
 
   useEffect(() => {
-    utils.getData(`http://ec2-54-90-169-130.compute-1.amazonaws.com/students`, setStudents);
+    utils.getData(`http://44.203.170.143:9000/students`, setStudents);
     utils.getData(
-      `http://ec2-54-90-169-130.compute-1.amazonaws.com/activities/${indexActivity}`,
+      `http://44.203.170.143:9000/activities/${indexActivity}`,
       setActivities
     );
     setListUpdated(false);

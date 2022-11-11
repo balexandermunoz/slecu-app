@@ -53,7 +53,7 @@ const Table = (props) => {
                     src={deleteLogo}
                     onClick={() =>
                       handleDelete(
-                        `http://ec2-54-90-169-130.compute-1.amazonaws.com/students/${student.id}`,
+                        `http://44.203.170.143:9000/students/${student.id}`,
                         setListUpdated
                       )
                     }
@@ -96,7 +96,7 @@ const Table = (props) => {
                   src={deleteLogo}
                   onClick={() =>
                     handleDelete(
-                      `http://ec2-54-90-169-130.compute-1.amazonaws.com/activities/${student.id}`,
+                      `http://44.203.170.143:9000/activities/${student.id}`,
                       setListUpdated
                     )
                   }
