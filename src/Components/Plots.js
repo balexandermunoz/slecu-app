@@ -51,7 +51,7 @@ const Plots = (props) => {
           ></Plot>
           <Plot
             data={topStudentsDataAvg}
-            layout={conf.layoutTopStudensAct(topStudentsValues)}
+            layout={conf.layoutTopStudensAvg(topStudentsValues)}
             config={conf.config}
             useResizeHandler={true}
             style={{ width: "100%", height: "100%" }}
