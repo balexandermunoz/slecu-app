@@ -27,9 +27,9 @@ const Body = (props) => {
   };
 
   useEffect(() => {
-    utils.getData(`http://44.203.170.143:9000/students`, setStudents);
+    utils.getData(`44.203.170.143:9000/students`, setStudents);
     utils.getData(
-      `http://44.203.170.143:9000/activities/${indexActivity}`,
+      `44.203.170.143:9000/activities/${indexActivity}`,
       setActivities
     );
     setListUpdated(false);
