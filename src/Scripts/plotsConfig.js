@@ -55,7 +55,7 @@ const layoutTopStudensAvg = (topStudentsValues) => {
     },
     yaxis: {
       title: {
-        text: "Activities solved",
+        text: "Average score",
         font: {
           family: "Courier New, monospace",
           size: 18,
