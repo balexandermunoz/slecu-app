@@ -25,7 +25,7 @@ const Form = ({ index, student, setStudent, type }) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(student)
             }
-            fetch(`https://student3.slecu.live/${type}/${index}`, requestInit)
+            fetch(`${process.env.REACT_APP_API_URL}/${type}/${index}`, requestInit)
                 .then(res => res.text())
                 .then(res => console.log(res))
         }
@@ -36,7 +36,7 @@ const Form = ({ index, student, setStudent, type }) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(student)
             }
-            fetch(`https://student3.slecu.live/${type}`, requestInit)
+            fetch(`${process.env.REACT_APP_API_URL}/${type}`, requestInit)
                 .then(res => res.text())
                 .then(res => console.log(res))
         }

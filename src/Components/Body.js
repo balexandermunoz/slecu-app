@@ -27,9 +27,9 @@ const Body = (props) => {
   };
 
   useEffect(() => {
-    utils.getData(`https://student3.slecu.live/students`, setStudents);
+    utils.getData(`${process.env.REACT_APP_API_URL}/students`, setStudents);
     utils.getData(
-      `https://student3.slecu.live/activities/${indexActivity}`,
+      `${process.env.REACT_APP_API_URL}/activities/${indexActivity}`,
       setActivities
     );
     setListUpdated(false);

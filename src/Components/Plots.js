@@ -10,9 +10,9 @@ const Plots = (props) => {
   const [avgValue, setAvgValue] = useState(null);
 
   useEffect(() => {
-    utils.getData(`https://student3.slecu.live/stats/`, setTopStudentsActivities);
-    utils.getData(`https://student3.slecu.live/stats/value`, setTopStudentsValues);
-    utils.getData(`https://student3.slecu.live/stats/avg`, setAvgValue);
+    utils.getData(`${process.env.REACT_APP_API_URL}/stats/`, setTopStudentsActivities);
+    utils.getData(`${process.env.REACT_APP_API_URL}/stats/value`, setTopStudentsValues);
+    utils.getData(`${process.env.REACT_APP_API_URL}/stats/avg`, setAvgValue);
   }, [props.listUpdated, props.indexActivity]);
 
   const topStudentsDataAct = [

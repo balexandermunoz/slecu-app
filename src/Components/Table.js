@@ -53,7 +53,7 @@ const Table = (props) => {
                     src={deleteLogo}
                     onClick={() =>
                       handleDelete(
-                        `https://student3.slecu.live/students/${student.id}`,
+                        `${process.env.REACT_APP_API_URL}/students/${student.id}`,
                         setListUpdated
                       )
                     }
@@ -96,7 +96,7 @@ const Table = (props) => {
                   src={deleteLogo}
                   onClick={() =>
                     handleDelete(
-                      `https://student3.slecu.live/activities/${student.id}`,
+                      `${process.env.REACT_APP_API_URL}/activities/${student.id}`,
                       setListUpdated
                     )
                   }
